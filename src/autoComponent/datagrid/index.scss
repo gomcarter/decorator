@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+/*样式在下面完成*/
+.datagrid-container {
+  width: 100%
+}
+
+.datagrid-title {
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  color: #6d6d6d;
+}
+
+.datagrid-title-text {
+  padding: 15px;
+  border-left: 3px solid #4786ff;
+}
+
+.datagrid-toolbar {
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  border-bottom: none;
+
+  th {
+    text-align: left;
+  }
+}
+
+.datagrid-toolbar-button {
+}
+
+.datagrid-checkbox {
+  width: 20px;
+  zoom: 1.5;
+}
+
+.datagrid-frame {
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+.datagrid-header {
+  font-size: 14px;
+  padding: 14px;
+}
+
+.datagrid-header-row {
+  border: 1px solid #ddd;
+}
+
+.datagrid-header-cell {
+  //text-align: center;
+  line-height: 1.42857143;
+  cursor: pointer;
+  padding: 10px 15px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.datagrid-header-check, .datagrid-row-check {
+  width: 30px;
+  text-align: center;
+  padding-left: 10px;
+}
+
+.datagrid-body {
+  text-align: left;
+}
+
+.datagrid-body-row, .datagrid-body-row-child {
+  border: 1px solid #ddd;
+}
+
+.datagrid-body-row:hover {
+  background: rgba(230, 230, 230, 0.31) !important;
+}
+
+.datagrid-body-td {
+  padding: 10px 5px;
+}
+
+.datagrid-body-cell {
+  max-height: 80px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .el-input__inner {
+    border-radius: 0;
+    padding: 0 5px;
+    text-align: center;
+    height: 36px;
+  }
+  .el-date-editor {
+    min-width: 86px;
+  }
+}
+
+.datagrid-body-cell::-webkit-scrollbar {
+  width: 3px;
+}
+
+.datagrid-body-cell::-webkit-scrollbar-thumb {
+  background: rgba(68, 54, 54, 0.1);
+}
+
+.datagrid-body-cell::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.11);
+}
+
+.datagrid-action {
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  color: darkblue;
+  margin: 0 7px;
+}
+
+.datagrid-footer {
+  width: 100%;
+  border: 1px solid #ddd;
+  background-color: #f1f1f1;
+}
+
+.datagrid-row-expander-all, .datagrid-row-expander {
+  cursor: pointer;
+  width: 46px;
+  text-align: left;
+
+  span {
+    display: inline-block;
+    padding: 15px;
+  }
+}
+
+.datagrid-editable {
+  width: 100%;
+  margin: 0;
+}

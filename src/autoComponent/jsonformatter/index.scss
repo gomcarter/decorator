@@ -1,0 +1,160 @@
+@charset "utf-8";
+
+.json-container .json-key {
+  color: #234a97;
+}
+
+.json-container .json-value {
+}
+
+.json-container .json-children {
+}
+
+.json-container {
+  display: block;
+  overflow: auto;
+  border: 1px solid #DCDFE6;
+  border-radius: 4px;
+  padding: 10px 40px;
+  line-height: 24px;
+}
+
+.json-container .json-selected{
+  background: #aaa;
+}
+
+.json-container > span {
+  display: block;
+  padding-left: 20px;
+  margin-left: -20px;
+  position: relative;
+  white-space: pre-wrap;
+}
+
+.json-container pre {
+  padding: 36px
+}
+
+.json-container .json-kvov {
+  display: block;
+  padding-left: 20px;
+  margin-left: -20px;
+  position: relative;
+  white-space: pre-wrap;
+}
+
+.json-container .json-collapsed {
+  white-space: nowrap
+}
+
+.json-container .json-collapsed > .json-blockInner {
+  display: none
+}
+
+.json-container .json-collapsed > .json-ell:after {
+  content: "…";
+  font-weight: bold
+}
+
+.json-container .json-key:after {
+  content:"";
+  margin-right: 0.5em;
+  font-weight: bold;
+  color: black;
+}
+
+.json-container .json-collapsed > .json-ell {
+  margin: 0 4px;
+  color: #888
+}
+
+.json-container .json-collapsed .json-kvov {
+  display: inline
+}
+
+.json-container .json-expander {
+  width: 20px;
+  height: 18px;
+  position: absolute;
+  left: -1px;
+  top: 4px;
+  z-index: 5;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAD1JREFUeNpiYGBgOADE%2F3Hgw0DM4IRHgSsDFOzFInmMAQnY49ONzZRjDFiADT7dMLALiE8y4AGW6LoBAgwAuIkf%2F%2FB7O9sAAAAASUVORK5CYII%3D") no-repeat center center;
+  display: block;
+  opacity: 0.15
+}
+
+.json-container .json-collapsed > .json-expander {
+  -webkit-transform: rotate(-90deg);
+}
+
+.json-container .json-expander:hover {
+  opacity: 0.35
+}
+
+.json-container .json-expander:active {
+  opacity: 0.5
+}
+
+.json-container .json-collapsed .json-kvov .json-expander {
+  display: none
+}
+
+.json-container .json-blockInner {
+  display: block;
+  padding-left: 24px;
+  border-left: 1px dotted #bbb;
+  margin-left: 2px;
+  position: relative;
+}
+
+.json-container .json-b {
+  font-weight: bold
+}
+
+.json-container .json-s {
+  color: #0B7500;
+  word-wrap: break-word
+}
+
+.json-container .json-bl, .json-nl, .json-n {
+  font-weight: bold;
+  color: #1A01CC
+}
+
+.json-container .json-k {
+  color: #000
+}
+
+.json-container [hidden] {
+  display: none !important
+}
+
+@-webkit-keyframes json-spin {
+  from {
+    -webkit-transform: rotate(0deg)
+  }
+  to {
+    -webkit-transform: rotate(360deg)
+  }
+}
+
+.json-container .json-spinner {
+  -webkit-animation: spin 2s 0 infinite
+  //animation: spin 0.5s;
+  //-moz-animation: spin 0.5s;
+  //-webkit-animation: spin 0.5s;
+  //-o-animation: spin 0.5s;
+}
+
+.json-string {
+  color: #0b6125;
+}
+
+.json-boolean, .json-number {
+  color: #811f24;
+}
+
+.json-null, .json-undefined {
+  color: darkgray;
+}

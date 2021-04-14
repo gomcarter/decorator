@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* components/templates/beans/beans.wxss */
+.beans-container {
+  position: relative;
+}
+
+.beans-wrapper {
+  width: 100%;
+  position: relative;
+  min-height: 100px;
+}
+
+.x-scrollable {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  font-size: 0;
+  -webkit-overflow-scrolling: touch;
+  display: -webkit-box;
+}
+
+.x-scrollable::-webkit-scrollbar   {
+  display: none;
+}
+
+.x-scrollbar::-webkit-scrollbar {
+  width: 0;
+}
+.x-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(68, 54, 54, 0);
+}
+
+.x-scrollable::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+.beans-item {
+  display: inline-block;
+  font-size: initial;
+  text-align: center;
+  margin: 0.8em 0;
+}
+
+.beans-item .beans-icon {
+  width: 80%;
+}
+
+.beans-item-text {
+  margin: 0.5em 0;
+  line-height: 20px;
+  font-size: 15px;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 1.5em;
+}
+
+.beans-scroll-line {
+  width: 40px;
+  height: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #ebebeb;
+  position: absolute;
+  z-index: 2;
+  bottom: 7.5px;
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+}
+
+.beans-scroll-line > .track {
+  width: 20px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #FF2238;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
