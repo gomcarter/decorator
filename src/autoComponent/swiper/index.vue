@@ -1,20 +1,25 @@
 <template>
-  <div class="swiper-wrapper" style="background: white"
+  <div class="swiper-plugins-wrapper"
        :style="{
-         'background-color': config.background.default || 'white',
+         'margin-top': (config.top.default || 0) + 'px',
+         'margin-right': (config.right.default || 0) + 'px',
+         'margin-bottom': (config.bottom.default || 0) + 'px',
+         'margin-left': (config.left.default || 0) + 'px'
        }">
-    <swiper :options="swiperOption" style="width: 80%; margin: 0 auto"
+    <swiper :options="swiperOption" ref="swiper"
+            v-if="data && data.length > 0"
             :style="{
               'border-radius': config.radius.default || 'none'
             }">
-      <swiper-slide class="swiper-slide" v-for="(item,index) in arrays" :key="index">
-        <div :data-url="item">
-          <img :src="item"/>
+      <swiper-slide class="swiper-slide" v-for="(item,index) in data" :key="index">
+        <div :data-url="item.clickUrl">
+          <img :src="$getPictureUrl(item.imageUrl)" :alt="item.title"/>
         </div>
       </swiper-slide>
       <!-- 分页器 -->
-      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-pagination" slot="pagination" :class="{ hidden: !config.pagination.default }"></div>
     </swiper>
+    <div class="components-placeholder" v-else>点击此区域进行编辑【轮播】</div>
   </div>
 </template>
 
@@ -31,16 +36,41 @@ export default {
       default: () => []
     }
   },
+  watch: {
+    'config.delay.default'() {
+      if (this.config.autoplay.default) {
+        this.swiperOption.autoplay.delay = this.config.delay.default
+        setTimeout(() => {
+          this.$refs.swiper.destroySwiper()
+          this.$refs.swiper.initSwiper()
+        })
+      }
+    },
+    'config.autoplay.default'() {
+      if (this.config.autoplay.default) {
+        this.swiperOption.autoplay = {
+          delay: this.config.delay.default,
+          disableOnInteraction: false
+        }
+      } else {
+        this.swiperOption.autoplay = false
+      }
+      setTimeout(() => {
+        this.$refs.swiper.destroySwiper()
+        this.$refs.swiper.initSwiper()
+      })
+    },
+    'config.pagination.default'() {
+      setTimeout(() => {
+        this.$refs.swiper.destroySwiper()
+        this.$refs.swiper.initSwiper()
+      })
+    }
+  },
   data() {
     return {
-      arrays: [
-        'https://img1.tg-img.com/seller/202103/29/3FF81C65-ABAF-4601-95B5-F25AFD70115C.jpg!y',
-        'https://img1.tg-img.com/seller/202104/08/289A0990-6355-4B62-AB16-69373129CA0C.jpg!y',
-        'https://img1.tg-img.com/seller/202103/29/DE8A7844-21BF-45A2-8F2C-BC71C3390227.jpg!y',
-        'https://img1.tg-img.com/seller/202104/08/18D9DA92-D7EF-487F-AF63-61634DB332BE.jpg!y',
-        'https://img1.tg-img.com/seller/202010/28/943625EB-22F7-4A74-82F9-AF325196EAC9.jpg!y'
-      ],
       swiperOption: {
+        autoHeight: true,
         // 显示分页
         pagination: {
           el: '.swiper-pagination'
@@ -58,6 +88,7 @@ export default {
   },
   computed: {},
   mounted() {
+    window.sw = this
   },
   methods: {}
 }

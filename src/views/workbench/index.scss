@@ -134,8 +134,40 @@
   .device-inner {
     background-color: #d6d6d6;
     height: 100%;
+
     .cellphone-container {
       width: 375px;
+
+      .drag-container {
+        position: relative;
+
+        .delete {
+          position: absolute;
+          right: 0;
+          margin: auto 0;
+          top: 0;
+          bottom: 0;
+          z-index: 10;
+          font-size: 30px;
+          width: 30px;
+          height: 30px;
+          background: white;
+          display: none;
+          opacity: 0.5;
+          cursor: pointer;
+        }
+
+        .delete:hover {
+          opacity: 1;
+          color: red;
+        }
+      }
+    }
+
+    .drag-container:hover {
+      .delete {
+        display: block;
+      }
     }
   }
 }

@@ -7,6 +7,7 @@
          'margin-left': (config.left.default || 0) + 'px'
        }">
     <div class="beans-wrapper"
+         v-if="data && data.length > 0"
          :class="{
            'x-scrollable': config.scrollable.default || false
          }"
@@ -20,7 +21,7 @@
              'width': (config.width.default || 25) + '%'
            }">
         <div class="beans-image-wrapper">
-          <img :src="$getPictureUrl(item.imageUrl)" class="beans-icon"
+          <img :src="$getPictureUrl(item.imageUrl)" class="beans-icon" :alt="item.title"
                :style="{
                  'border-radius': config.iconRadius.default || '0'
                }"/>
@@ -28,6 +29,7 @@
         <div class="beans-item-text">{{ item.title }}</div>
       </div>
     </div>
+    <div class="components-placeholder" v-else>点击此区域进行编辑【豆豆】</div>
     <div class="beans-scroll-line" v-if="config.scrollable.default && config.scrollLine.default">
       <div class="track"></div>
     </div>

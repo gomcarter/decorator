@@ -158,7 +158,7 @@ export default {
       if (!this.mark) {
         data.append('mark', this.mark)
       }
-      const res = await this.baseService.uploadImageHavekg({ data })
+      const res = await this.baseService.uploadImage({ data })
 
       let index = 0
       this.imageUrls = this.imageUrls.map((image) => {

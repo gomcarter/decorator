@@ -81,9 +81,9 @@ Object.assign(window, utils)
 import mapping from '@/utils/mapping'
 Object.assign(Vue.prototype, mapping)
 
-import vueSwiper from 'vue-awesome-swiper'
+import swiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
-Vue.use(vueSwiper)
+Vue.use(swiper)
 
 export const that = new Vue({
   el: '#app',

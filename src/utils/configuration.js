@@ -3,7 +3,7 @@ export default {
     name: '豆豆',
     default() {
       const config = this.config()
-      const data = this.dataConfig().default
+      const data = []
       const key = 'beans'
       return { key, data, config }
     },
@@ -36,7 +36,7 @@ export default {
         background: {
           title: '背景色',
           type: 'color',
-          default: 'white'
+          default: '#ffffff'
         },
         radius: {
           title: '边框样式',
@@ -74,25 +74,25 @@ export default {
         top: {
           title: '上边距',
           type: 'slider',
-          values: [0, 50],
+          values: [0, 100],
           default: 0
         },
         bottom: {
           title: '下边距',
           type: 'slider',
-          values: [0, 50],
+          values: [0, 100],
           default: 0
         },
         left: {
           title: '左边距',
           type: 'slider',
-          values: [0, 50],
+          values: [0, 100],
           default: 0
         },
         right: {
           title: '右边距',
           type: 'slider',
-          values: [0, 50],
+          values: [0, 100],
           default: 0
         },
         dynamicdata: {
@@ -102,41 +102,35 @@ export default {
         }
       }
     },
-    dataConfig: () => {
-      return {
-        default: [],
-        // 图片，文字，链接
-        plugins: 'news'
-      }
-    }
+    plugins: 'news'
   },
   swiper: {
     name: '轮播',
     default() {
       const config = this.config()
-      const data = this.dataConfig().default
+      const data = []
       const key = 'swiper'
       return { key, data, config }
     },
     config: () => {
       return {
-        scrollable: {
-          title: '显示方式',
-          type: 'radio',
-          values: [{
-            label: '单行',
-            value: true
-          }, {
-            label: '多行',
-            value: false
-          }],
-          default: false
-        },
-        background: {
-          title: '背景色',
-          type: 'color',
-          default: 'white'
-        },
+        // direction: {
+        //   title: '滚动方向',
+        //   type: 'radio',
+        //   values: [{
+        //     label: '水平',
+        //     value: false
+        //   }, {
+        //     label: '垂直',
+        //     value: true
+        //   }],
+        //   default: false
+        // },
+        // background: {
+        //   title: '背景色',
+        //   type: 'color',
+        //   default: '#ffffff'
+        // },
         radius: {
           title: '边框样式',
           type: 'radio',
@@ -149,49 +143,60 @@ export default {
           }],
           default: '0'
         },
-        width: {
-          title: '图标大小',
-          type: 'slider',
-          values: [0, 100],
-          default: 25
-        },
-        iconRadius: {
-          title: '图标形状',
+        pagination: {
+          title: '分页器',
           type: 'radio',
           values: [{
-            label: '正方形',
-            value: '0'
+            label: '显示',
+            value: true
           }, {
-            label: '圆角',
-            value: '8px'
-          }, {
-            label: '圆形',
-            value: '50%'
+            label: '不显示',
+            value: false
           }],
-          default: '0'
+          default: true
+        },
+        autoplay: {
+          title: '自动播放',
+          type: 'radio',
+          values: [{
+            label: '是',
+            value: true
+          }, {
+            label: '否',
+            value: false
+          }],
+          default: true
+        },
+        delay: {
+          rely: 'autoplay',
+          title: '切换间隔',
+          type: 'slider',
+          step: 100,
+          values: [1, 10000],
+          default: 2000
         },
         top: {
           title: '上边距',
           type: 'slider',
-          values: [0, 50],
+          values: [0, 100],
           default: 0
         },
         bottom: {
           title: '下边距',
           type: 'slider',
-          values: [0, 50],
+          values: [0, 100],
           default: 0
         },
         left: {
           title: '左边距',
           type: 'slider',
-          values: [0, 50],
+          values: [0, 100],
           default: 0
         },
         right: {
           title: '右边距',
           type: 'slider',
-          values: [0, 50],
+          values: [0, 100],
           default: 0
         },
         dynamicdata: {
@@ -201,11 +206,100 @@ export default {
         }
       }
     },
-    dataConfig: () => {
+    plugins: 'news'
+  },
+  images: {
+    name: '图片',
+    default() {
+      const config = this.config()
+      const data = []
+      const key = 'images'
+      return { key, data, config }
+    },
+    config: () => {
       return {
-        default: [],
-        // 图片，文字，链接
-        plugins: 'news'
+        top: {
+          title: '上边距',
+          type: 'slider',
+          values: [0, 100],
+          default: 0
+        },
+        bottom: {
+          title: '下边距',
+          type: 'slider',
+          values: [0, 100],
+          default: 0
+        },
+        left: {
+          title: '左边距',
+          type: 'slider',
+          values: [0, 100],
+          default: 0
+        },
+        right: {
+          title: '右边距',
+          type: 'slider',
+          values: [0, 100],
+          default: 0
+        },
+        dynamicdata: {
+          title: '动态数据',
+          type: 'checkbox',
+          default: false
+        }
+      }
+    },
+    plugins: 'news'
+  },
+  text: {
+    name: '文字',
+    default() {
+      const config = this.config()
+      const data = []
+      const key = 'text'
+      return { key, data, config }
+    },
+    config: () => {
+      return {
+        background: {
+          title: '背景色',
+          type: 'color',
+          default: '#ffffff'
+        },
+        color: {
+          title: '字体颜色',
+          type: 'color',
+          default: '#000000'
+        },
+        top: {
+          title: '上边距',
+          type: 'slider',
+          values: [0, 100],
+          default: 0
+        },
+        bottom: {
+          title: '下边距',
+          type: 'slider',
+          values: [0, 100],
+          default: 0
+        },
+        left: {
+          title: '左边距',
+          type: 'slider',
+          values: [0, 100],
+          default: 0
+        },
+        right: {
+          title: '右边距',
+          type: 'slider',
+          values: [0, 100],
+          default: 0
+        },
+        text: {
+          title: '文本内容',
+          type: 'textarea',
+          default: ''
+        }
       }
     }
   }

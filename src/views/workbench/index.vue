@@ -21,17 +21,24 @@
         <div class="device-ios">
           <div class="device-inner y-scrollbar">
             <div class="cellphone-container">
-              <el-popover
-                placement="right"
-                width="520"
-                trigger="click"
-                v-for="(com, index) of components" :key="com.key + '_' + index">
-                <ac-configuration :config="com.config" :data="com.data"
-                                  :plugins="configuration[com.key].dataConfig().plugins"></ac-configuration>
-                <div slot="reference">
-                  <component :is="'ac-' + com.key" :data="com.data" :config="com.config"></component>
-                </div>
-              </el-popover>
+              <draggable v-model="components" :disabled="false" :group="'components'">
+                <transition-group>
+                  <div v-if="components && components.length > 0" v-for="(com, index) of components"
+                       :key="com.key + '_' + index" class="drag-container">
+                    <el-popover
+                      placement="right"
+                      width="520"
+                      trigger="click">
+                      <ac-configuration :config="com.config" :data="com.data"
+                                        :plugins="configuration[com.key].plugins"></ac-configuration>
+                      <div slot="reference">
+                        <component :is="'ac-' + com.key" :data="com.data" :config="com.config"></component>
+                      </div>
+                    </el-popover>
+                    <span class="el-icon-delete delete" @click="onDelete(index)"></span>
+                  </div>
+                </transition-group>
+              </draggable>
             </div>
           </div>
         </div>
@@ -42,6 +49,7 @@
 
 <script>
 import configuration from '@/utils/configuration'
+import draggable from 'vuedraggable'
 
 export default {
   name: 'Container',
@@ -62,14 +70,16 @@ export default {
     this.requestContainer({})
 
     this.components.push(
-      // configuration['beans'].default(),
-      // configuration['beans'].default(),
-      // configuration['beans'].default(),
       configuration['swiper'].default(),
-      configuration['beans'].default()
+      configuration['beans'].default(),
+      configuration['images'].default(),
+      configuration['text'].default()
     )
   },
   methods: {
+    onDelete(index) {
+      this.components.splice(index, 1)
+    },
     search() {
       this.requestContainer({ name: this.name })
     },
@@ -103,6 +113,9 @@ export default {
         return s
       })
     }
+  },
+  components: {
+    draggable
   }
 }
 </script>
