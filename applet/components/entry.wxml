@@ -1,0 +1,7 @@
+<!--components/entry.wxml-->
+<import src="./templates/beans/beans.wxml" />
+<import src="./templates/swiper/swiper.wxml" />
+<import src="./templates/images/images.wxml" />
+<import src="./templates/text/text.wxml" />
+
+<template is="{{is}}" data="{{...options}}"></template>

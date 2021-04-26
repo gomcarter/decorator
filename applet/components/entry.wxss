@@ -1,0 +1,4 @@
+@import "./templates/beans/beans.wxss";
+@import "./templates/swiper/swiper.wxss";
+@import "./templates/images/images.wxss";
+@import "./templates/text/text.wxss";

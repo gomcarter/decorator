@@ -1,0 +1,10 @@
+<template name="images">
+  <view class="images-container"
+    style="margin: {{ configShow.top.default + 'rpx' }} {{ configShow.right.default + 'rpx' }} {{ configShow.bottom.default + 'rpx' }} {{ configShow.left.default + 'rpx' }};">
+    <image src="{{ item.iconUrl}}" class="images-item" wx:for="{{dataShow}}" wx:key="index" catchtap="noop"
+      data-url="{{ item.clickUrl }}" data-scp="{{key}}.{{index}}" mode="aspectFit"
+      style="height: {{item.height || 0}}rpx; border-radius: {{ configShow.iconRadius.default || 'none' }};"
+      bindload="onImageLoad" data-index="{{index}}">
+    </image>
+  </view>
+</template>

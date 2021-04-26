@@ -1,0 +1,10 @@
+<template name="text">
+  <view class="text-container"
+    style="margin: {{ configShow.top.default + 'rpx' }} {{ configShow.right.default + 'rpx' }} {{ configShow.bottom.default + 'rpx' }} {{ configShow.left.default + 'rpx' }}; background-color: {{ configShow.background.default || 'white' }}; color: {{ configShow.color.default || 'black' }}; background: {{ configShow.background.default || 'white' }}; text-align: {{ configShow.align.default || 'left' }}; border-radius: {{ configShow.radius.default + 'rpx' || 'none' }}">
+    <view class="text-wrapper" wx:for="{{ dataShow }}" :data-url="item.clickUrl" key="{{index}}"
+      data-scp="{{key}}.{{index}}"
+      style="background-color: {{item.background}}; color: {{item.color}}; display: {{item.display}}; font-size: {{ item.size + 'rpx' }}; line-height: {{ item.lineHeight + 'rpx' }}; text-align: {{ item.align }}; padding: {{(item.paddingTop || 0) + 'rpx ' + (item.paddingRight || 0) + 'rpx ' + (item.paddingBottom || 0) + 'rpx ' + (item.paddingLeft || 0) + 'rpx'}}">
+      {{ item.title }}
+    </view>
+  </view>
+</template>

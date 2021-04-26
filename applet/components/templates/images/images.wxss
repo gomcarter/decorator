@@ -1,0 +1,12 @@
+/* components/templates/images/images.wxss */
+.images-container {
+  position: relative;
+  min-height: 242rpx;
+  position: relative;
+  background-color: transparent;
+}
+
+.images-item {
+  width: 100%;
+  display:block;
+}

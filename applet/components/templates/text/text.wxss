@@ -1,0 +1,52 @@
+/* components/templates/text/text.wxss */
+.text-container {
+  position: relative;
+}
+
+.text-item {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.text-item .text-icon {
+  width: 80%;
+}
+
+.text-item-text {
+  margin: 0.5em 0;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 45rpx;
+}
+
+.text-scroll-line {
+  width: 80rpx;
+  height: 6rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+  background-color: #ebebeb;
+  position: absolute;
+  z-index: 2;
+  bottom: 15rpx;
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+}
+
+.text-scroll-line>.track {
+  width: 40rpx;
+  height: 6rpx;
+  border-radius: 6rpx;
+  background-color: #FF2238;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}

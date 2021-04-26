@@ -1,0 +1,5 @@
+<view class="index-container">
+  <component wx:for="{{ components }}" wx:for-key="index" is="{{ item.key }}"
+   wx:key="index" options="{{ item }}" id="{{item.key}}">
+  </component>
+</view>

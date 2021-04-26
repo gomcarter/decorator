@@ -1,0 +1,17 @@
+<template name="beans">
+  <view class="beans-container"
+    style="margin: {{ configShow.top.default + 'rpx' }} {{ configShow.right.default + 'rpx' }} {{ configShow.bottom.default + 'rpx' }} {{ configShow.left.default + 'rpx' }}; background-color: {{ configShow.background.default || 'white' }}; border-radius: {{ configShow.radius.default + 'rpx' || 'none' }}">
+    <scroll-view class="beans-scrollable" scroll-x="true"
+      bindscroll="scroll" style="white-space : {{ configShow.scrollable.default ? 'nowrap' : 'normal' }}">
+      <view class="beans-item" wx:for="{{dataShow}}" wx:key="index" catchtap="noop" data-url="{{ item.clickUrl }}"
+        data-scp="{{key}}.{{index}}" style="width: {{(configShow.width.default || 25) + '%'}}">
+        <image src="{{ item.iconUrl }}" class="beans-icon" mode="aspectFit" style="height: {{ configShow.imageHeight }}rpx; border-radius: {{ configShow.iconRadius.default || 'none' }};">
+        </image>
+        <text class="beans-item-text">{{item.title}}</text>
+      </view>
+    </scroll-view>
+    <view class="beans-scroll-line" wx:if="{{ configShow.scrollable.default && configShow.scrollLine.default }}">
+      <view class="track" style="transform:translateX({{_linePos}}rpx)"></view>
+    </view>
+  </view>
+</template>

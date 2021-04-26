@@ -1,0 +1,4 @@
+<text>pages/login.wxml</text>
+<button catchtap="noop" data-url="pages/index/index">返回</button>
+
+<button catchtap="noop" data-url="pages/index/index">前进</button>

@@ -1,0 +1,18 @@
+<template name="swiper">
+  <view class="swiper-container"
+    style="margin: {{ configShow.top.default + 'rpx' }} {{ configShow.right.default + 'rpx' }} {{ configShow.bottom.default + 'rpx' }} {{ configShow.left.default + 'rpx' }}; border-radius: {{ configShow.radius.default + 'rpx' || 'none' }}">
+    <swiper indicator-dots="{{data.length>1}}" autoplay="{{configShow.autoplay.default}}"
+      interval="{{configShow.delay.default || 3000}}" circular indicator-dots="{{ configShow.pagination.default }}"
+      indicator-active-color="#ff4c48" indicator-color="white" style="height: {{configShow.containerHeight || 200}}rpx">
+      <block wx:for="{{dataShow}}" wx:key="index">
+        <swiper-item>
+          <view class="swiper-item" catchtap="onItemTap" data-index="{{index}}"
+            data-url="{{item.clickUrl}}" data-scp="{{key}}.{{index}}">
+            <image class="swiper-item-image" style="height: {{configShow.containerHeight || 200}}rpx" src="{{item.iconUrl}}"
+              bindload="onImageLoad"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</template>
