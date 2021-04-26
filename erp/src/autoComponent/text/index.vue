@@ -25,7 +25,11 @@
              'margin-top': (t.top || 0) + 'px',
              'margin-right': (t.right || 0) + 'px',
              'margin-bottom': (t.bottom || 0) + 'px',
-             'margin-left': (t.left || 0) + 'px'
+             'margin-left': (t.left || 0) + 'px',
+             'font-weight': (t.weight || 0),
+             'text-decoration': t.decoration,
+             'font-style': t.style,
+             'letter-spacing': (t.spacing || 0) + 'px',
            }">{{ t.title }}</div>
     </template>
     <div v-else class="text-wrapper components-placeholder">点击此区域进行编辑【文字】</div>
